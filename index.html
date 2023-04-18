@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <title>Easy Modrinth Pack Generator!</title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="https://multimark.glitch.me/new_combo.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script src="FileSaver.min.js"></script>
+     <script src="jszip.min.js"></script>
+    
+    <!-- import the webpage's javascript file -->
+    
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <!-- this is the start of content -->
+    <h1>
+      Let's make a modpack!
+    </h1>
+    <p>
+      Just select a folder of mods, and we'll try to package it to a modpack for Modrinth! To clear mods, just refresh!
+    </p>
+    <h2>
+      Modern Directory Select
+    </h2>
+    <p>
+      seems to only work on chromium-based browsers
+    </p>
+    <button id="pick-directory">
+      Pick Directory
+    </button>
+    <h2>
+      Multiple File Select (for older browsers)
+    </h2>
+    <input type="file" name="filefield" multiple="multiple" id="pick-files">
+    <h2>
+      Stats
+    </h2>
+    <p id="files-processed">
+      0 files processed...
+    </p>
+    <h2>
+      Other Options
+    </h2>
+    <div>
+      <small>Pssst, we'll try to autofill these if you select your mods first. </small> <br />
+      Name: 
+      <input type="text" placeholder="Epic modpack" name="name" title="Name of the modpack" id="pack-name" />
+      <br />
+      Minecraft Version:
+      <input type="text" placeholder="1.xx.x" name="mc-version" title="Version of Minecraft" id="mc-version">
+      <br />
+      Pack Version:
+      <input type="text" placeholder="2022.xx.xx" name="pack-version" title="Pack version" id="pack-version">
+      <br />
+      Pack Summary:<br />
+      <textarea placeholder="This pack is cool because..." name="pack-summary" title="Pack summary" id="pack-summary" rows="20"></textarea>
+      <br />
+      Mod Loader:
+      <select name="loader" id="loader" title="Mod Loader to use">
+        <option value="fabric">Fabric</option>
+        <option value="forge">Forge</option>
+        <option value="quilt">Quilt</option>
+      </select>
+    </div>
+    <h2>
+      Mods!
+    </h2>
+    <table id="mods-table">
+      <tr id="mods-header-row">
+        <th data-key="icon_url">Mod Icon</th>
+        <th data-key="filename">Your Filename</th>
+        <th data-key="mod_name">Name</th>
+        <th data-key="client_apply">Client Mod?</th>
+        <th data-key="server_apply">Server Mod?</th>
+        <th data-key="game_versions">Target Version(s)</th>
+        <th data-key="loaders">Loader(s)</th>
+        <th data-key="filesize">Size</th>
+        <th data-key="override">Override</th>
+      </tr>
+    </table>
+    <h2>
+      Export!
+    </h2>
+    Make sure you don't have a lot of override mods otherwise this might crash your browser. <br />
+    <button id="export">
+      Export to Modrinth
+    </button>
+    <h2>
+      Log
+    </h2>
+    <pre id="log"></pre>
+  </body>
+</html>

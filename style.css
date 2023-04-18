@@ -1,0 +1,58 @@
+/* a minimalist set of CSS resets */
+
+/* default to border-box */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* adjust typography defaults */
+body {
+  margin: 1rem;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+/* images and videos max out at full width */
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+td{
+  overflow:hidden; 
+  white-space:nowrap; 
+  text-overflow: ellipsis;
+}
+
+/* Probaly wrong unit */
+
+.key-sha1 {max-width: 10em;}
+.key-sha512 {max-width: 10em;}
+.key-game_versions{
+  max-width: 15em;
+}
+
+td > .mod-icon,.key-icon_url > a,.key-icon_url{
+  width: 64px;
+  min-width: 64px;
+  height: auto;
+}
+
+
+@import url("https://fonts.xz.style/serve/inter.css");
+@import url("https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css");
+
+textarea{
+  min-width: 50em;
+}
+
+html > body{
+  /* New.css hack */
+  max-width: 1080px;
+}
